@@ -1,2 +1,5 @@
-package screenmatch.calculos;public class Avaliavel {
+package screenmatch.calculos;
+
+public interface Avaliavel {
+    int getAvaliacao();
 }
