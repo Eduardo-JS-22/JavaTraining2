@@ -1,7 +1,11 @@
 package screenmatch.modelos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo> {
+    @SerializedName("Title")
     protected String nomeTitulo;
+    @SerializedName("Year")
     protected int anoDeLancamento;
     private boolean disponivelNoPlano;
     private double somaDasAvaliacoes;
@@ -11,6 +15,16 @@ public class Titulo implements Comparable<Titulo> {
     public Titulo(String nomeTitulo, int anoDeLancamento) {
         this.nomeTitulo = nomeTitulo;
         this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulo(TituloOMDb meuTituloOMDb) {
+        this.nomeTitulo = meuTituloOMDb.title();
+        try{
+            this.anoDeLancamento = Integer.parseInt(meuTituloOMDb.year());
+            this.duracaoEmMinutos = Integer.valueOf(meuTituloOMDb.runtime().substring(0, 3).replace(" ", ""));
+        } catch (NumberFormatException e) {
+            System.out.println("Ocorreu um erro: " + e.getMessage());
+        }
     }
 
     public void setNomeTitulo(String nomeTitulo) {
@@ -72,5 +86,10 @@ public class Titulo implements Comparable<Titulo> {
     @Override
     public int compareTo(Titulo outroTitulo) {
         return this.getNomeTitulo().compareTo(outroTitulo.getNomeTitulo());
+    }
+
+    @Override
+    public String toString() {
+        return "Titulo: %s, Ano: %d, Duração: %d minutos".formatted(nomeTitulo, anoDeLancamento, duracaoEmMinutos);
     }
 }

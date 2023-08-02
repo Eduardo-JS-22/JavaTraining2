@@ -1,0 +1,23 @@
+[
+  {
+    "cep": "89295-000",
+    "logradouro": "",
+    "bairro": "",
+    "localidade": "Rio Negrinho",
+    "uf": "SC"
+  },
+  {
+    "cep": "89295-220",
+    "logradouro": "Rua Carlos Speicher",
+    "bairro": "Vila Nova",
+    "localidade": "Rio Negrinho",
+    "uf": "SC"
+  },
+  {
+    "cep": "89223-010",
+    "logradouro": "Rua Germano Wetzel",
+    "bairro": "Bom Retiro",
+    "localidade": "Joinville",
+    "uf": "SC"
+  }
+]
